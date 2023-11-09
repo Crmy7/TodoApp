@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const mysql = require("mysql");
-const sqlQuery = require("../mysql/mysql");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models/models");
@@ -96,10 +94,6 @@ router.post('/login', async (req, res) => {
         res.send("Erreur lors de la connexion : " + exception)
     }
 });
-
-function generateToken(id) {
-    return jwt.sign({ id: id }, process.env.JWT_SECRET, { expiresIn: '1d' });
-}
 
 router.post('/login', async (req, res) => {
     const body = req.body;

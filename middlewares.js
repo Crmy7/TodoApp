@@ -13,7 +13,7 @@ function authentificationMiddleware(req, res, next) {
                 return res.status(401).json({ message: 'Token invalide' });
             }
             const userId = decoded.id;
-            sqlQuery(`SELECT id FROM user WHERE id = ${userId}`, (results) => {
+            sqlQuery(`SELECT id, display_name FROM user WHERE id = ${userId}`, (results) => {
                 console.log(results);
                 if (results.length === 0) {
                     res.status(400);
