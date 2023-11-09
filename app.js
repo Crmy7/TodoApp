@@ -6,14 +6,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-const User = require('./models/user');
-const Task = require('./models/task');
+require('./models/models')
 
 
 var indexRouter = require('./routes/index');
 var tasksRouter = require('./routes/tasks');
 var tasksRouterV2 = require('./routes/tasksv2');
 var usersRouter = require('./routes/users');
+var usersRouterv2 = require('./routes/usersv2');
 
 
 var app = express();
@@ -29,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/tasks', tasksRouter);
 app.use('/V2/tasks', tasksRouterV2);
 app.use('/users', usersRouter);
+app.use('/V2/users', usersRouterv2);
 
 
 module.exports = app;

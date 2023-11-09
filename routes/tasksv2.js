@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const sqlQuery = require("../mysql/mysql");
 const middlewares = require("../middlewares");
 const sequelize = require("../utils/sequelize");
-const Task = require('../models/task');
+const { Task } = require("../models/models");
 
 router.use(middlewares.authentificationMiddleware);
 
